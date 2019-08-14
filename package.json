@@ -1,0 +1,11 @@
+{
+  "name": "zugmeister",
+  "version": "1.0.0",
+  "description": "A test case base project",
+  "main": "service/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "JP Wesselink <jpwesselink@gmail.com>",
+  "license": "ISC"
+}
