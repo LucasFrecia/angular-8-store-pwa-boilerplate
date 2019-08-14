@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Traffic Meister application</title>
+  <script type="text/javascript" src="index.js"></script>
+  <script type="text/javascript">
+    trafficMeister.fetchData(function(err, data) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(data);
+      }
+    })
+  </script>
+</head>
+
+<body>
+</body>
+
+</html>
