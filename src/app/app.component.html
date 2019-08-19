@@ -1,0 +1,29 @@
+<div fxLayout="column">
+
+  <app-header class="sticky"></app-header>
+
+  <!-- <ng-container *ngIf="isLoading$ | async">
+    <mat-progress-bar color="primary"
+                      [mode]="indeterminate">
+    </mat-progress-bar>
+
+  </ng-container> -->
+
+  <router-outlet></router-outlet>
+
+  <footer class="main-footer p-24"
+          fxLayoutGap="0.5%"
+          fxLayoutAlign="start start"
+          fxLayout="row"
+          fxLayout.sm="column"
+          fxLayout.xs="column"
+          fxLayout.md="column">
+    <!-- fxLayout.xs="column"-->
+
+    <div fxFlex>
+      <h2 class="text-indicator footer-styled-headline">
+        CREATED BY: LUCAS FRECIA
+      </h2>
+    </div>
+  </footer>
+</div>

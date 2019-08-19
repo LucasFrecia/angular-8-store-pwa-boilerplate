@@ -1,0 +1,30 @@
+:host {
+  .sticky {
+    top: 0;
+    position: sticky !important;
+    z-index: 9999999;
+  }
+
+  .title-toolbar {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .animation-toolbar {
+    transition: all 0.4s;
+  }
+
+  mat-toolbar {
+    box-shadow: 0 8px 6px -6px #000;
+    background-color: white;
+    color: black;
+    position: sticky !important;
+    z-index: 100;
+    top: 0;
+    max-height: 100px;
+  }
+
+  img {
+    cursor: pointer;
+  }
+}

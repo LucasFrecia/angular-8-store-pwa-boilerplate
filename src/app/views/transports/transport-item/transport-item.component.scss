@@ -1,0 +1,21 @@
+:host {
+
+    .example-card {
+        max-width: 400px;
+        background-color: white;
+    }
+
+    .color-item {
+        width: 12px;
+        height: 12px;
+        border-radius: 24%;
+        border: 1px solid black;
+    }
+
+  /*  mat-card {
+        &.mobile {
+            width: 100vw;
+        }
+    }*/
+
+}

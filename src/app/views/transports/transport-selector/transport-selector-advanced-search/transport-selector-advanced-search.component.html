@@ -1,0 +1,87 @@
+<mat-card fxFlex>
+
+    <mat-toolbar fxLayout="row"
+                 fxLayoutAlign="space-between center"
+                 fxLayoutGap="7px">
+        <mat-toolbar-row>
+            FILTERS
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <mat-divider></mat-divider>
+
+    <form [formGroup]="form"
+          #formDirective="ngForm"
+          novalidate
+          [ngxsForm]="formPath"
+          fxLayout="row"
+          fxLayout.sm="column"
+          fxLayout.xs="column"
+          fxLayoutAlign="space-around center">
+
+        <mat-form-field class="form-filter">
+            <mat-select placeholder="Types"
+                        formControlName="type"
+                        data-test-id="type"
+                        [disabled]="(filterCombos$ | async)?.types.length < 1">
+                <mat-option *ngFor="let option of (filterCombos$ | async)?.types"
+                            [value]="option">
+                    {{ option | titlecase }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="form-filter">
+            <mat-select placeholder="Colors"
+                        formControlName="color"
+                        data-test-id="color"
+                        [disabled]="(filterCombos$ | async)?.colors.length < 1">
+                <mat-option *ngFor="let option of (filterCombos$ | async)?.colors"
+                            [value]="option">
+                    {{ option | titlecase }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="form-filter">
+            <mat-select placeholder="Brands"
+                        formControlName="brand"
+                        data-test-id="brand"
+                        [disabled]="(filterCombos$ | async)?.brands.length < 1">
+                <mat-option *ngFor="let option of (filterCombos$ | async)?.brands"
+                            [value]="option">
+                    {{ option | titlecase }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+
+    <div fxLayout="row"
+         fxLayoutGap="24px"
+         fxLayoutAlign="end"
+         fxLayoutAlign.sm="center"
+         fxLayoutAlign.xs="center"
+         ngClass.xs="mobile">
+        <button mat-raised-button
+                color="warn"
+                (click)="resetFilter()"
+                [disabled]="isLoading$ | async">
+            RESET
+        </button>
+        <button mat-raised-button
+                color="primary"
+                (click)="applyFilter()"
+                [disabled]="isLoading$ | async"
+                data-test-id="filter-transports-btn">
+            FILTER
+        </button>
+    </div>
+
+    <mat-chip-list>
+        <ng-container *ngFor="let item of (selectedFormData$ | async)">
+            <mat-chip *ngIf="item">
+                {{ item | titlecase }}
+            </mat-chip>
+        </ng-container>
+    </mat-chip-list>
+
+</mat-card>

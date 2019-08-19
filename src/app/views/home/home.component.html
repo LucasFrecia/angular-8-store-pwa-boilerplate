@@ -1,0 +1,20 @@
+<div class="container">
+
+    <img fxFlex
+         src="./assets/main-wide.gif"
+         src.xs="./assets/main-narrow.gif"
+         src.sm="./assets/main-narrow.gif"
+         ngClass="desktop"
+         ngClass.xs="mobile"
+         ngClass.sm="mobile"
+         alt="Sytac main image"
+         data-test-id="main-image">
+
+    <button mat-raised-button
+            color="primary"
+            [routerLink]="[ '/transports/transport-selector' ]"
+            data-test-id="choose-transport-router-btn">
+        CHOOSE YOUR TRANSPORT
+    </button>
+
+</div>

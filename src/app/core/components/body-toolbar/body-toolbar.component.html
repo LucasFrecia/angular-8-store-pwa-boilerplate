@@ -1,0 +1,20 @@
+<mat-toolbar class="grey-toolbar">
+    <mat-toolbar-row fxLayout="row"
+                     fxLayoutAlign="space-between center">
+        <div fxLayout="row"
+             fxFlex
+             fxLayoutAlign="space-between center">
+
+            <button mat-icon-button
+                    (click)="routeToHome()"
+                    class="toolbar-text">
+                <mat-icon>arrow_back</mat-icon>
+            </button>
+            <h1 class="toolbar-text"
+                data-test-id="toolbar-title">
+                {{ title }}
+            </h1>
+            <div></div>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

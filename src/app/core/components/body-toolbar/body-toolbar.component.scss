@@ -1,0 +1,20 @@
+@import '../../styles/variables.scss';
+
+:host {
+
+  h1 {
+    font-size: 150%;
+  }
+
+  .grey-toolbar {
+    background-color: $header-background-color;
+  }
+
+  h1 {
+    color: black;
+  }
+
+  .toolbar-text {
+    opacity: 0.5;
+  }
+}

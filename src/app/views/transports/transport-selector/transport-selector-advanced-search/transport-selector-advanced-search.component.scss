@@ -1,0 +1,25 @@
+@import '../../../../core/styles/variables';
+
+:host {
+
+    mat-toolbar {
+        color: $default-icon-color;
+        background-color: white;
+    }
+
+    mat-form-field {
+        min-width: 300px;
+    }
+
+    mat-chip-list {
+        padding: 24px;
+    }
+
+    .btn-wrapper {
+        padding-top: 20px;
+    }
+
+    .form-filter {
+        margin-top: 35px;
+    }
+}

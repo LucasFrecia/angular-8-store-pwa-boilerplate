@@ -1,0 +1,23 @@
+<div class="sticky">
+  <mat-toolbar color="primary"
+               fxFlex
+               [fxLayoutAlign]="titleLayoutAlign$ | async"
+               class="title-toolbar animation-toolbar"
+               [style.margin-top]="(marginSubject$ | async) + 'px'">
+    <mat-toolbar-row *ngIf="(toolbarType$ | async) === 1"
+                     [fxLayoutAlign]="titleLayoutAlign$ | async">
+      <img @left-to-right-enter
+           src="./assets/sytac-transport-logo-with-items.png"
+           height="100"
+           alt="Sytac logo with name"
+           [routerLink]="['/home']">
+    </mat-toolbar-row>
+    <mat-toolbar-row *ngIf="(toolbarType$ | async) === 2">
+      <img @left-to-right-enter
+           src="./assets/sytac-transport-name.png"
+           height="45"
+           alt="Sytac name as logo"
+           [routerLink]="['/home']">
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>

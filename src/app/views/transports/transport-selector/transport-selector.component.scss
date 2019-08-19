@@ -1,0 +1,46 @@
+:host {
+
+    .transport-selector-container {
+        display: inline-table !important;
+        height: 100vh;
+    }
+
+    .filter {
+        min-width: 300px;
+        max-width: 300px;
+    }
+
+    .transpor-items-container {
+        &.desktop {
+            width: 70vw;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            padding-top: 24px;
+            padding-bottom: 24px;
+        }
+    }
+
+    .spinner-container {
+        margin-top: 20vh;
+    }
+
+    app-transport-selector-advanced-search {
+        &.desktop {
+            display: table;
+            width: 70vw;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 24px;
+        }
+
+        &.mobile {
+            height: 72vh;
+        }
+    }
+
+
+    mat-sidenav-container {
+        min-height: 100vh;
+    }
+
+}

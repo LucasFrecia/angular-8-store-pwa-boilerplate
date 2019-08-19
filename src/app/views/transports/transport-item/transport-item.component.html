@@ -1,0 +1,24 @@
+<mat-card class="example-card"
+          ngClass.xs="mobile"
+          ngClass.sm="mobile"
+          data-test-id="item-card">
+    <mat-card-header>
+        <mat-card-title data-test-id="item-card-title">
+            {{ item.brand | titlecase }}
+        </mat-card-title>
+        <mat-card-subtitle data-test-id="item-card-subtitle">
+            {{ item.type | titlecase }}
+        </mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image
+         [src]="item.img"
+         onError="this.src='./assets/error-placeholder.png';"
+         alt="Photo">
+    <mat-card-content fxFles
+                      fxLayout="row"
+                      fxLayoutAlign="space-evenly center">
+        <div *ngFor="let color of item.colors"
+             class="color-item"
+             [style.background-color]="color"></div>
+    </mat-card-content>
+</mat-card>

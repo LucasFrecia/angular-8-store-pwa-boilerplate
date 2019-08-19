@@ -1,92 +1,63 @@
-# Planes, trains and automobiles
+# SytacTrainsAndCars
 
-## The Traffic Meister application assignment
+Angular 8 project built by Lucas Frecia for a jot test.
 
- - Create a form which behaves as follows
-    - It will display the following drop down menus
-      - A list of vehicle types
-      - A list of vehicle brands
-      - A list of vehicle brand colors
-    - All three lists are enabled when data is available.
-    - When selecting an option in on of the list, the other lists are filtered accordingly.
-    - At the bottom of the form all selections will be shown.
-  - Use the framework based on the vacancy you're applying for. So if you applied to an Angular vacancy, use Angular. The same goes for React, VueJS, etc.
-  - Except the framework restriction above, you are free to use any tool and/or framework you like. We do encourage you to remain critical when you include an additional dependency. Is this dependency really needed/useful? As long as it runs inside a browser and you can explain why that solution is the most favorable.
-  - You are allowed/encouraged to design your own layout.
-  - Your implementation should be
-      - tested
-      - visually attractive
-      - deployable
+![](sytac-test.gif)
 
-### For example.
-1. When yellow is selected all types and brands that have no yellow vehicles are filtered out
-2. When selecting "Bugatti Veyron", only the car type and the available colors are selectable
+### Installation
 
-## Data library
+After cloning, install with yarn, run the production build, and run the server to see tha app running as a PWA (if using npm replace yarn with npm)
 
-The data are provided by a small service you can find in the `service` folder.
-
-This service can be accessed by a the global variable `trafficMeister` and provide a single method `fetchData`.
-
+```sh
+$ yarn
+$ ng build --prod
+$ yarn start:pwa
 ```
-trafficMeister.fetchData(callBack);
+Head to http://localhost:8080/ to see the app running.
+
+### E2E Testing
+
+Before testing the app with Cypress, run the local server
+
+```sh
+$ yarn start
 ```
+Head to http://localhost:4200/ you should see the app running
 
-The callback is called with the full data list as first parameter.
+Now run Cypress
 
+```sh
+$ yarn e2e
 ```
-trafficMeister.fetchData(function(err, data) {
-  console.log(data);
-});
-```
+A chromium browser should open, click the test named transport.selector.spec.ts and it will run.
 
-The data library can be used as a node module.
+### Plugins
 
-```
-var trafficMeister = require('traffic-meister');
-trafficMeister.fetchData(function(err, data) {
-  console.log(data);
-});
-```
+Some of the libs included that make for a better user and developer experience are: 
 
-## Coding Assignment Evaluation Guidelines
+| Plugin | README |
+| ------ | ------ |
+| @ngxs/store | https://ngxs.gitbook.io/ngxs/ |
+| @angular/flex-layout | https://github.com/angular/flex-layout |
+| angular-in-memory-web-api | https://github.com/angular/in-memory-web-api |
+| cypress | https://docs.cypress.io/guides/overview/why-cypress.html |
+| @angular/pwa | https://angular.io/guide/service-worker-getting-started |
+| @angular/material | https://material.angular.io/guides |
 
-To give you an idea what we expect from the implementation of the assignment we came up with the following guidelines. In general, treat it as code that will go in production for one of our clients.
+### Why @ngxs over @ngrx?
 
-**Important!** We will provide you with a Github repository where you can create your assignment in. As soon as you create a pull request to `master` our bot will immediately lock you out of the repository and the assignment is over. So before you put in a pull request, make sure you are done!
+I decided to go with ngxs for this test because it is actually the underdog but in my experience it has shown to be a great library for managing state. Having started and worked in many projects with ngrx, I find that ngxs is great for devs who come from Java, .net or any other OOP language, so it can serve in many cases to teach to new devs.
 
-### Assignment
-* Does the code work.
-* Does the code still work when encountering edge cases.
-* Does the code come with instructions.
-* Do all included artifacts have purpose.
+### Why an in memory web api?
 
-### Code quality
-* Is the code structured in a logical way.
-* Could the code be extended.
-* Do functions, classes and modules use the right level of abstraction.
-* Does the code show software engineering best practices and design patterns where applicable.
-* Is the code consistent.
-* Does the code contain descriptive names.
-* Is the code production ready.
-* Does the code base scale to a bigger feature set.
+The test came with a service, I decided that instead of using this script in my application I should make as realistic as possible. So I think going with this interceptor of http requests was the best way to go for the test.
 
-### Frameworks + Language
-* What framework was chosen.
-* Are the features of the framework used according to community best practices.
-* Does the code use features of the framework or language when possible.
-* Are common pitfalls avoided.
+### Why Cypress?
 
-### Testing
-* Are there automated test.
-* How are the tests written.
-* What choices are made in testing certain parts of the code.
-* Are the tests written with the right level of abstraction.
-* What test cases are chosen.
-* Does the test code make use of the features of the test framework when applicable.
+In my last job we had heated debates over testing, mostly unit testing over E2E, and the I myself and other team members reached the conclusion that for this kind of tests E2E is the way to go since it takes into account the whole application and services. And even though it is true that it could give false positives in some cases, the end result are tests that cover most cases and act how a user would.
 
-### Design + CSS
-* How much effort is taken into making the app look nice.
-* Is user experience taken into consideration.
-* How was the UI implemented.
-* Does the application work on all devices.
+### Why PWA?
+
+The PWA experience really changes how the user interacts with our application. It not only allows him to access and view a weba pp as if it where a native app, but also increases speed by an order of magnitude and even allows for browsing without a connection with cached data. I decided to add this since I think it will be an important player n the market the years to come.
+
+

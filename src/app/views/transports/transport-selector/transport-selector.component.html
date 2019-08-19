@@ -1,0 +1,40 @@
+<div fxFlex
+     fxLayout="column"
+     class="transport-selector-container">
+
+  <app-body-toolbar title="Select Transport">
+  </app-body-toolbar>
+
+  <app-transport-selector-advanced-search fxLayout="row"
+                                          fxLayout.xs="column"
+                                          fxLayout.sm="column"
+                                          ngClass="desktop"
+                                          ngClass.xs="mobile"
+                                          ngClass.sm="mobile">
+  </app-transport-selector-advanced-search>
+
+  <div fxFlex
+       fxLayout="row wrap"
+       fxLayout.xs="column"
+       fxLayout.sm="column"
+       fxLayoutAlign="space-evenly center"
+       fxLayoutGap="16px grid"
+       fxLayoutGap.xs="24px"
+       fxLayoutGap.sm="24px"
+       ngClass="transpor-items-container desktop"
+       ngClass.xs="transpor-items-container"
+       ngClass.sm="transpor-items-container"
+       *ngIf="(isLoading$ | async) === false">
+    <app-transport-item *ngFor="let transport of (items$ | async)"
+                        [item]="transport">
+    </app-transport-item>
+  </div>
+
+  <div *ngIf="isLoading$ | async"
+       class="spinner-container"
+       fxFlex
+       fxLayoutAlign="center center">
+    <mat-spinner></mat-spinner>
+  </div>
+
+</div>

@@ -1,0 +1,27 @@
+:host {
+
+    .container {
+        position: relative;
+
+        &>button {
+            position: fixed;
+            margin-top: 13vh;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        &>img {
+
+            width: 100vw;
+
+            &.mobile {
+                height: 83vh;
+            }
+
+            &.desktop {
+                height: 87vh;
+            }
+        }
+    }
+
+}

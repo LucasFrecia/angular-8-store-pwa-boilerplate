@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+    background-color: #f1f1f14d;
+    font-size: 1rem;
+    font-family: monospace;
+    font-weight: bold;
+    line-height: 1.1;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+.sticky {
+    top: 0;
+    position: sticky !important;
+    z-index: 9999999;
+}
